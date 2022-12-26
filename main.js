@@ -57,4 +57,13 @@ form.addEventListener("submit",e => {
   UpdateCity(cityName).then(data=>{UpdateUI(data)})
   .catch(err =>{  throw new Error("We got an error") })
   ;
+
+  localStorage.setItem("nameOfcity",cityName);
 });
+
+if(localStorage.getItem("nameOfcity")){
+  UpdateCity(localStorage.getItem("nameOfcity"))
+  .then(data=>{UpdateUI(data)})
+  .catch(err =>{  throw new Error("We got an error") })
+  ;
+}
